@@ -1,0 +1,2 @@
+[2026-09-18T18:35:16] protocol=REST server=S01 client=C01 requestId=req-001 operation=GET_PRODUCT input=KB-100 status=200 result=OK
+[2026-09-18T18:35:23] protocol=REST server=S01 client=C01 requestId=req-002 operation=GET_PRODUCT input=XX-999 status=404 result=PRODUCT_NOT_FOUND
