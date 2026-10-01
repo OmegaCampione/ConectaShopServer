@@ -5,7 +5,7 @@ import datetime
 import shipping_pb2
 import shipping_pb2_grpc
 
-SERVER_TEAM = "S01" # Altere para o código da sua equipe
+SERVER_TEAM = "S01" # Alterar para o código da equipe no dia
 
 # Tabelas de preço conforme contrato
 TARIFAS = {

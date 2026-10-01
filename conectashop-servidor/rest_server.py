@@ -92,6 +92,15 @@ def calculate_quote(quote: QuoteRequest, request: Request):
         
     discount_cents = int(subtotal_cents * discount_percent / 100)
     total_cents = subtotal_cents - discount_cents
+
+    log_rest(client, req_id, "POST_QUOTE", f"{len(quote.items)} itens", 200, "OK")
+    return {
+        "requestId": req_id,
+        "subtotalCents": subtotal_cents,
+        "discountPercent": discount_percent,
+        "discountCents": discount_cents,
+        "totalCents": total_cents
+    }
     
 def log_rest(client, req_id, operation, input_data, http_status, result):
     agora = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
@@ -100,5 +109,4 @@ def log_rest(client, req_id, operation, input_data, http_status, result):
     with open("integration_logs.txt", "a", encoding="utf-8") as f:
         f.write(mensagem)
 
-# Para rodar (execute isso em um terminal separado):
 # uvicorn rest_server:app --host 0.0.0.0 --port 8080
