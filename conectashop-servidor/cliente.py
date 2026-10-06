@@ -7,7 +7,7 @@ import argparse
 import shipping_pb2
 import shipping_pb2_grpc
 
-CLIENT_TEAM = "C01"
+CLIENT_TEAM = "C02"
 
 def log_client(protocol, server_team, req_id, operation, target, status, duration_ms, result):
     agora = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")

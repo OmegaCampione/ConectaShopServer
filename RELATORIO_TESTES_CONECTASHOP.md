@@ -23,7 +23,7 @@ Todos os testes obrigatorios passaram usando `cliente.py` depois dos ajustes nas
 | R3 POST quote 2x KB-100 + 1x MS-200 | PASS: HTTP 200, `totalCents=61722` |
 | R4 POST quote 1x MN-400 | PASS: HTTP 200, `discountPercent=10`, `totalCents=107991` |
 | R5 POST quote com SKU inexistente | PASS: HTTP 422, `code=INVALID_PRODUCT` |
-| G1 Health | PASS: `status=SERVING`, `server_team=S01` |
+| G1 Health | PASS: `status=SERVING`, `server_team=S04` |
 | G2 1500g LOCAL STANDARD | PASS: `price_cents=1800`, `estimated_days=2` |
 | G3 2500g REGIONAL EXPRESS | PASS: `price_cents=4600`, `estimated_days=2` |
 | G4 1000g NATIONAL STANDARD | PASS: `price_cents=3400`, `estimated_days=7` |

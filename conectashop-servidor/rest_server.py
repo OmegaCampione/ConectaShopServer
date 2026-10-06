@@ -67,7 +67,7 @@ CATALOGO = {
 # Função de log padrão
 def log_rest(client, req_id, operation, input_data, http_status, result):
     agora = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-    print(f"[{agora}] protocol=REST server=S01 client={client} requestId={req_id} operation={operation} input={input_data} status={http_status} result={result}")
+    print(f"[{agora}] protocol=REST server=S04 client={client} requestId={req_id} operation={operation} input={input_data} status={http_status} result={result}")
 
 # Middleware para exigir os headers obrigatórios
 @app.middleware("http")
@@ -151,7 +151,7 @@ def calculate_quote(quote: QuoteRequest, request: Request):
     
 def log_rest(client, req_id, operation, input_data, http_status, result):
     agora = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-    mensagem = f"[{agora}] protocol=REST server=S01 client={client} requestId={req_id} operation={operation} input={input_data} status={http_status} result={result}\n"
+    mensagem = f"[{agora}] protocol=REST server=S04 client={client} requestId={req_id} operation={operation} input={input_data} status={http_status} result={result}\n"
     print(mensagem, end="")
     with open("integration_logs.txt", "a", encoding="utf-8") as f:
         f.write(mensagem)

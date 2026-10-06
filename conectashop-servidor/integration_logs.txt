@@ -1,25 +1,13 @@
-[2026-09-18T18:35:16] protocol=REST server=S01 client=C01 requestId=req-001 operation=GET_PRODUCT input=KB-100 status=200 result=OK
-[2026-09-18T18:35:23] protocol=REST server=S01 client=C01 requestId=req-002 operation=GET_PRODUCT input=XX-999 status=404 result=PRODUCT_NOT_FOUND
-[2026-10-06T17:47:58] protocol=REST server=S01 client=C01 requestId=req-4338e1 operation=GET_PRODUCT input=KB-100 status=200 result=OK
-[2026-10-06T17:47:58] protocol=REST server=S01 client=C01 requestId=req-afef7c operation=GET_PRODUCT input=XX-999 status=404 result=PRODUCT_NOT_FOUND
-[2026-10-06T17:47:58] protocol=REST server=S01 client=C01 requestId=req-7582e4 operation=POST_QUOTE input=2 itens status=200 result=OK
-[2026-10-06T17:47:58] protocol=REST server=S01 client=C01 requestId=req-374215 operation=POST_QUOTE input=1 itens status=200 result=OK
-[2026-10-06T17:47:58] protocol=REST server=S01 client=C01 requestId=req-392f12 operation=POST_QUOTE input=FAKE-99 status=422 result=INVALID_PRODUCT
-[2026-10-06T17:47:58] protocol=GRPC server=S01 client=C01 requestId=N/A operation=Health input=N/A status=OK result=SERVING
-[2026-10-06T17:47:58] protocol=GRPC server=S01 client=C01 requestId=req-41a1ab operation=CalculateShipping input=1500g status=OK result=1800
-[2026-10-06T17:47:58] protocol=GRPC server=S01 client=C01 requestId=req-b61c4d operation=CalculateShipping input=2500g status=OK result=4600
-[2026-10-06T17:47:58] protocol=GRPC server=S01 client=C01 requestId=req-c96a50 operation=CalculateShipping input=1000g status=OK result=3400
-[2026-10-06T17:48:52] protocol=REST server=S01 client=C01 requestId=req-duplicate operation=POST_QUOTE input=KB-100 status=422 result=INVALID_QUANTITY_OR_ITEMS
-[2026-10-06T17:48:52] protocol=REST server=S01 client=C01 requestId=req-invalid-product operation=POST_QUOTE input=FAKE-99 status=422 result=INVALID_PRODUCT
-[2026-10-06T18:16:01] protocol=REST server=S01 client=C01 requestId=req-8db4cc operation=GET_PRODUCT input=KB-100 status=200 result=OK
-[2026-10-06T18:16:01] protocol=REST server=S01 client=C01 requestId=req-e9760c operation=GET_PRODUCT input=XX-999 status=404 result=PRODUCT_NOT_FOUND
-[2026-10-06T18:16:01] protocol=REST server=S01 client=C01 requestId=req-4a98f7 operation=POST_QUOTE input=2 itens status=200 result=OK
-[2026-10-06T18:16:01] protocol=REST server=S01 client=C01 requestId=req-cc7e4e operation=POST_QUOTE input=1 itens status=200 result=OK
-[2026-10-06T18:16:01] protocol=REST server=S01 client=C01 requestId=req-80f871 operation=POST_QUOTE input=FAKE-99 status=422 result=INVALID_PRODUCT
-[2026-10-06T18:16:01] protocol=GRPC server=S01 client=C01 requestId=N/A operation=Health input=N/A status=OK result=SERVING
-[2026-10-06T18:16:01] protocol=GRPC server=S01 client=C01 requestId=req-c6df88 operation=CalculateShipping input=1500g status=OK result=1800
-[2026-10-06T18:16:01] protocol=GRPC server=S01 client=C01 requestId=req-83785e operation=CalculateShipping input=2500g status=OK result=4600
-[2026-10-06T18:16:01] protocol=GRPC server=S01 client=C01 requestId=req-e825a7 operation=CalculateShipping input=1000g status=OK result=3400
-[2026-10-06T18:16:16] protocol=REST server=S01 client=C01 requestId=req-invalid-qty-after operation=POST_QUOTE input=validation status=422 result=INVALID_QUANTITY_OR_ITEMS
-[2026-10-06T18:16:16] protocol=REST server=S01 client=C01 requestId=req-missing-body-after operation=POST input=[('body', 'items')] status=400 result=INVALID_REQUEST
-[2026-10-06T18:16:16] protocol=REST server=S01 client=C01 requestId=req-bad-json-after operation=POST input=[('body', 1)] status=400 result=INVALID_REQUEST
+[2026-10-06T20:13:54] protocol=REST server=S04 client=C02 requestId=C02-R1-8a83722f6eba operation=GET_PRODUCT input=KB-100 status=200 result=OK
+[2026-10-06T20:13:55] protocol=REST server=S04 client=C02 requestId=C02-R2-5d1cd359e066 operation=GET_PRODUCT input=XX-999 status=404 result=PRODUCT_NOT_FOUND
+[2026-10-06T20:13:55] protocol=REST server=S04 client=C02 requestId=C02-R3-d4a5f124ec68 operation=POST_QUOTE input=2 itens status=200 result=OK
+[2026-10-06T20:13:55] protocol=REST server=S04 client=C02 requestId=C02-R4-6c31383a48f6 operation=POST_QUOTE input=1 itens status=200 result=OK
+[2026-10-06T20:13:55] protocol=REST server=S04 client=C02 requestId=C02-R5-0272fd960ecd operation=POST_QUOTE input=XX-999 status=422 result=INVALID_PRODUCT
+[2026-10-06T20:15:01] protocol=GRPC server=S04 client=C02 requestId=N/A operation=Health input=N/A status=OK result=SERVING
+[2026-10-06T20:15:01] protocol=GRPC server=S04 client=C02 requestId=C02-G2-7e584a04eac3 operation=CalculateShipping input=1500g status=OK result=1800
+[2026-10-06T20:15:01] protocol=GRPC server=S04 client=C02 requestId=C02-G3-34f8fd69d9a1 operation=CalculateShipping input=2500g status=OK result=4600
+[2026-10-06T20:15:01] protocol=GRPC server=S04 client=C02 requestId=C02-G4-50e804ca4aa5 operation=CalculateShipping input=1000g status=OK result=3400
+[2026-10-06T20:16:45] protocol=GRPC server=S04 client=C02 requestId=N/A operation=Health input=N/A status=OK result=SERVING
+[2026-10-06T20:16:45] protocol=GRPC server=S04 client=C02 requestId=C02-G2-1bd793be3954 operation=CalculateShipping input=1500g status=OK result=1800
+[2026-10-06T20:16:45] protocol=GRPC server=S04 client=C02 requestId=C02-G3-371073929e0a operation=CalculateShipping input=2500g status=OK result=4600
+[2026-10-06T20:16:45] protocol=GRPC server=S04 client=C02 requestId=C02-G4-fccf6479066f operation=CalculateShipping input=1000g status=OK result=3400

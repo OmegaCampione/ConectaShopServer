@@ -5,7 +5,7 @@ import datetime
 import shipping_pb2
 import shipping_pb2_grpc
 
-SERVER_TEAM = "S01" # Alterar para o código da equipe no dia
+SERVER_TEAM = "S04" # Alterar para o código da equipe no dia
 
 # Tabelas de preço conforme contrato
 TARIFAS = {
@@ -22,7 +22,7 @@ PRAZO = {
 
 def log_grpc(client, req_id, operation, input_data, status, result):
     agora = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
-    mensagem = f"[{agora}] protocol=GRPC server=S01 client={client} requestId={req_id} operation={operation} input={input_data} status={status} result={result}\n"
+    mensagem = f"[{agora}] protocol=GRPC server=S04 client={client} requestId={req_id} operation={operation} input={input_data} status={status} result={result}\n"
     print(mensagem, end="")
     with open("integration_logs.txt", "a", encoding="utf-8") as f:
         f.write(mensagem)
