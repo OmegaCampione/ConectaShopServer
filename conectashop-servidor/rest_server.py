@@ -1,10 +1,60 @@
 from fastapi import FastAPI, Request, HTTPException, status
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from typing import List
 import datetime
 
 app = FastAPI()
+
+
+def error_response(status_code, code, message, request_id=None):
+    content = {"code": code, "message": message}
+    if request_id:
+        content["requestId"] = request_id
+    response = JSONResponse(status_code=status_code, content=content)
+    if request_id:
+        response.headers["X-Request-ID"] = request_id
+    return response
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    req_id = request.headers.get("x-request-id")
+    errors = exc.errors()
+    error_types = {error.get("type") for error in errors}
+    error_locations = [error.get("loc", ()) for error in errors]
+
+    is_invalid_quantity_or_items = any(
+        error_type in {"greater_than_equal", "less_than_equal", "too_short", "too_long"}
+        for error_type in error_types
+    )
+
+    if is_invalid_quantity_or_items:
+        log_rest(
+            request.headers.get("x-client-team"),
+            req_id,
+            "POST_QUOTE",
+            "validation",
+            422,
+            "INVALID_QUANTITY_OR_ITEMS",
+        )
+        return error_response(
+            422,
+            "INVALID_QUANTITY_OR_ITEMS",
+            "Quantidade fora do intervalo ou lista de itens invalida",
+            req_id,
+        )
+
+    log_rest(
+        request.headers.get("x-client-team"),
+        req_id,
+        request.method,
+        str(error_locations),
+        400,
+        "INVALID_REQUEST",
+    )
+    return error_response(400, "INVALID_REQUEST", "JSON invalido ou campo obrigatorio ausente", req_id)
 
 # Catálogo em memória conforme o contrato
 CATALOGO = {
@@ -26,10 +76,7 @@ async def check_headers(request: Request, call_next):
     req_id = request.headers.get("x-request-id")
     
     if not client_team or not req_id:
-        return JSONResponse(
-            status_code=400,
-            content={"code": "MISSING_REQUIRED_HEADER", "message": "Headers obrigatórios ausentes"}
-        )
+        return error_response(400, "MISSING_REQUIRED_HEADER", "Headers obrigatorios ausentes", req_id)
         
     response = await call_next(request)
     response.headers["X-Request-ID"] = req_id # Devolver o request-id
